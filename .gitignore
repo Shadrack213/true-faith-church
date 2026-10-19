@@ -1,0 +1,10 @@
+# Local preview settings (not part of the website)
+.claude/
+
+# Old first-draft copy left by the editor's folder move
+/true-faith-church/
+
+# OS clutter
+Thumbs.db
+desktop.ini
+.DS_Store

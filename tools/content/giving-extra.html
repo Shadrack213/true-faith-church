@@ -1,0 +1,114 @@
+  <!-- Giving: offline details (left) + giving form (right) -->
+  <section class="giving-page">
+    <div class="container">
+      <div class="giving-layout">
+
+        <div class="giving-info reveal">
+          <h2>True Faith Church International</h2>
+          <p class="giving-lead">Your faithful giving helps True Faith Church International to preach, practice, and propagate the Word of God, and to proclaim the Gospel of Jesus Christ to all nations through Sabbath observance, prayer, and evangelism.</p>
+          <p class="giving-hint"><strong>To give, use the form on the right / below</strong> — it will show you how to complete your gift.</p>
+
+          <!-- ======================================================
+               GIVING DETAILS: replace each "To be confirmed" below
+               with the official information when it is available.
+               ====================================================== -->
+          <div class="giving-method">
+            <h3><i class="fa-solid fa-mobile-screen-button"></i> Mobile Money (MoMo)</h3>
+            <dl>
+              <dt>MoMo number</dt><dd class="tbc" data-pay="momo-number">To be confirmed</dd>
+              <dt>Network</dt><dd class="tbc" data-pay="momo-network">To be confirmed</dd>
+              <dt>Account name</dt><dd class="tbc" data-pay="momo-name">To be confirmed</dd>
+            </dl>
+          </div>
+
+          <div class="giving-method">
+            <h3><i class="fa-solid fa-building-columns"></i> Bank Transfer</h3>
+            <dl>
+              <dt>Bank</dt><dd class="tbc" data-pay="bank-name">To be confirmed</dd>
+              <dt>Account name</dt><dd class="tbc" data-pay="bank-account-name">To be confirmed</dd>
+              <dt>Account number</dt><dd class="tbc" data-pay="bank-account-number">To be confirmed</dd>
+              <dt>Branch</dt><dd class="tbc" data-pay="bank-branch">To be confirmed</dd>
+              <dt>SWIFT / BIC</dt><dd class="tbc" data-pay="bank-swift">To be confirmed</dd>
+            </dl>
+          </div>
+
+          <p class="giving-ref"><i class="fa-solid fa-circle-info"></i> Please add your name and what the gift is for (e.g. Tithe) as the payment reference.</p>
+          <p class="giving-contact">Questions about giving? Call <a href="tel:+233244962073">+233 24 496 2073</a> or email <a href="mailto:info@truefaithchurchintl.org">info@truefaithchurchintl.org</a>.</p>
+        </div>
+
+        <!-- Giving form -->
+        <div class="give-widget reveal" data-give>
+          <div class="give-head">
+            <span data-give-title>Choose amount</span>
+            <span class="give-steps" aria-hidden="true"><i class="on"></i><i></i></span>
+          </div>
+
+          <!-- Step 1 -->
+          <form class="give-step" data-step="1" novalidate>
+            <div class="give-freq" role="radiogroup" aria-label="How often">
+              <button type="button" class="active" data-freq="One-time" role="radio" aria-checked="true">One-time</button>
+              <button type="button" data-freq="Monthly" role="radio" aria-checked="false">Monthly</button>
+            </div>
+
+            <div class="give-amounts">
+              <button type="button" data-amt="50"><span data-cur>GHS</span> 50</button>
+              <button type="button" data-amt="100"><span data-cur>GHS</span> 100</button>
+              <button type="button" data-amt="200"><span data-cur>GHS</span> 200</button>
+              <button type="button" data-amt="500"><span data-cur>GHS</span> 500</button>
+              <label class="give-other">
+                <span data-cur>GHS</span>
+                <input type="number" min="1" step="any" inputmode="decimal" placeholder="Other Amount" aria-label="Other amount" data-other>
+              </label>
+            </div>
+
+            <label class="give-label" for="give-currency">Currency</label>
+            <select id="give-currency" class="give-select" data-currency>
+              <option value="GHS">Ghanaian Cedi (GHS)</option>
+              <option value="USD">US Dollar (USD)</option>
+              <option value="GBP">British Pound Sterling (GBP)</option>
+              <option value="EUR">Euro (EUR)</option>
+              <option value="CAD">Canadian Dollar (CAD)</option>
+              <option value="XOF">West African CFA Franc (XOF)</option>
+              <option value="AED">UAE Dirham (AED)</option>
+            </select>
+
+            <label class="give-label" for="give-designation">Designation</label>
+            <select id="give-designation" class="give-select" data-designation>
+              <option value="">Choose one</option>
+              <option>Tithe</option>
+              <option>Offering</option>
+              <option>Thanksgiving</option>
+              <option>Missions &amp; Evangelism</option>
+              <option>Other</option>
+            </select>
+
+            <label class="give-check"><input type="checkbox" data-comment-toggle> Write us a comment</label>
+            <textarea class="give-comment" rows="3" placeholder="Your comment" aria-label="Comment" data-comment hidden></textarea>
+
+            <p class="give-error" role="alert" data-error></p>
+            <button type="submit" class="give-next">Next <i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+
+          <!-- Step 2 -->
+          <div class="give-step" data-step="2" hidden>
+            <div class="give-summary" data-summary></div>
+            <p class="give-howto">Complete your gift using one of the options below. Use your name and the designation as the reference.</p>
+            <div class="give-pay">
+              <h4><i class="fa-solid fa-mobile-screen-button"></i> Mobile Money (MoMo)</h4>
+              <p><span data-copy="momo-number"></span> · <span data-copy="momo-network"></span><br><span data-copy="momo-name"></span></p>
+              <h4><i class="fa-solid fa-building-columns"></i> Bank Transfer</h4>
+              <p><span data-copy="bank-name"></span> · Acct: <span data-copy="bank-account-number"></span><br><span data-copy="bank-account-name"></span></p>
+            </div>
+            <p class="give-monthly-note" data-monthly-note hidden>For monthly giving, please set up a recurring MoMo payment or a standing order with your bank.</p>
+            <div class="give-actions">
+              <button type="button" class="give-back" data-back><i class="fa-solid fa-arrow-left"></i> Back</button>
+              <a href="contact.html" class="give-next">Need help?</a>
+            </div>
+          </div>
+
+          <p class="give-foot">God loves a cheerful giver — 2 Corinthians 9:7</p>
+        </div>
+
+      </div>
+    </div>
+  </section>

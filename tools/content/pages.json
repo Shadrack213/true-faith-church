@@ -1,0 +1,333 @@
+[
+  {
+    "file": "about.html", "title": "About Us", "group": null, "bg": "worship",
+    "heading": "About Us", "custom": true,
+    "sub": "About Us", "h2": "About True Faith Church International",
+    "intro": "To preach, practice, and propagate the Word of God.",
+    "cards": [
+      ["fa-solid fa-eye", "Vision", "To uphold the truth of God's Word through holiness and faithful Christian living."],
+      ["fa-solid fa-bullseye", "Mission", "Proclaiming the Gospel of Jesus Christ to all nations through Sabbath observance, prayer, and evangelism."],
+      ["fa-solid fa-heart", "Our Purpose", "“To preach, practice, and propagate the Word of God... to maintain peace, harmony, and love among mankind through prayer, evangelism, and service.”"]
+    ],
+    "extra": "about-extra.html"
+  },
+  {
+    "file": "giving.html", "title": "Giving", "group": null, "bg": "hands",
+    "custom": true, "extra": "giving-extra.html",
+    "sub": "Giving", "h2": "Support the Mission of True Faith Church International",
+    "intro": "Your faithful giving helps True Faith Church International to preach, practice, and propagate the Word of God, and to proclaim the Gospel of Jesus Christ to all nations through Sabbath observance, prayer, and evangelism.",
+    "cards": [
+      ["fa-solid fa-hand-holding-heart", "Why We Give", "Giving is part of our faithful service to God and humanity — supporting worship, evangelism, and the work of the ministry in every branch."],
+      ["fa-solid fa-circle-info", "How to Give", "Official giving details are to be confirmed. Please contact the church office for guidance on how to give."],
+      ["fa-solid fa-phone", "Contact the Church Office", "<a href='tel:+233244962073'>+233 24 496 2073</a><br><a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ]
+  },
+  {
+    "file": "contact.html", "title": "Contact Us", "group": null, "bg": "church",
+    "custom": true, "extra": "contact-extra.html",
+    "sub": "Contact Us", "h2": "Contact True Faith Church International",
+    "intro": "True Faith Church International is a place to be nurtured in the pure truth of the Kingdom of God. We would love you to be a part of us. Join one of our worship services and you'll be blessed.",
+    "cards": [
+      ["fa-solid fa-location-dot", "Address", "Kwahu Praso, Ghana — P.O. Box 203, Ejisu"],
+      ["fa-solid fa-phone", "Phone", "<a href='tel:+233244962073'>+233 24 496 2073</a>"],
+      ["fa-solid fa-envelope", "Email", "<a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ]
+  },
+
+  {
+    "file": "events-national.html", "title": "National Events", "group": "Events", "bg": "praise",
+    "custom": true, "ownHeader": true, "extra": "events-extra.html",
+    "sub": "Events",
+    "intro": "National events of True Faith Church International. Dates, venues, and programmes for upcoming national events are to be confirmed and will be published here.",
+    "cards": [
+      ["fa-solid fa-church", "Sabbath Worship Service", "Saturdays, 9:00 AM – 2:00 PM (All Branches)."],
+      ["fa-solid fa-hands-praying", "Weekly Fasting and Prayer", "Usually 9:00 AM – 2:30 PM. The day varies by location."],
+      ["fa-regular fa-calendar", "Upcoming National Events", "Dates and venues to be confirmed."]
+    ]
+  },
+  {
+    "file": "events-regional.html", "title": "Regional Events", "group": "Events", "bg": "praise",
+    "custom": true, "ownHeader": true, "extra": "events-extra.html",
+    "sub": "Events",
+    "intro": "Regional events of True Faith Church International. Dates, venues, and programmes for upcoming regional events are to be confirmed and will be published here.",
+    "cards": [
+      ["fa-solid fa-church", "Sabbath Worship Service", "Saturdays, 9:00 AM – 2:00 PM (All Branches)."],
+      ["fa-solid fa-hands-praying", "Weekly Fasting and Prayer", "Usually 9:00 AM – 2:30 PM. The day varies by location."],
+      ["fa-regular fa-calendar", "Upcoming Regional Events", "Dates and venues to be confirmed."]
+    ]
+  },
+  {
+    "file": "events-district.html", "title": "District Events", "group": "Events", "bg": "praise",
+    "custom": true, "ownHeader": true, "extra": "events-extra.html",
+    "sub": "Events",
+    "intro": "District events of True Faith Church International. Dates, venues, and programmes for upcoming district events are to be confirmed and will be published here.",
+    "cards": [
+      ["fa-solid fa-church", "Sabbath Worship Service", "Saturdays, 9:00 AM – 2:00 PM (All Branches)."],
+      ["fa-solid fa-hands-praying", "Weekly Fasting and Prayer", "Usually 9:00 AM – 2:30 PM. The day varies by location."],
+      ["fa-regular fa-calendar", "Upcoming District Events", "Dates and venues to be confirmed."]
+    ]
+  },
+
+  {
+    "file": "church-headquarters.html", "title": "Headquarters", "group": "Find a Church", "bg": "church",
+    "heading": "Headquarters", "sub": "Find a Church",
+    "intro": "True Faith Church International headquarters in Kwahu Praso, Ghana.",
+    "showcase": ["assets/images/find-a-church-congregation.webp", "Ministers of True Faith Church International gathered at a church event"],
+    "cards": [
+      ["fa-solid fa-location-dot", "Address", "Kwahu Praso, Ghana<br>P.O. Box 203, Ejisu"],
+      ["fa-regular fa-clock", "Worship &amp; Prayer", "Sabbath Worship Service: Saturdays, 9:00 AM – 2:00 PM.<br>Weekly Fasting and Prayer: usually 9:00 AM – 2:30 PM; the day varies by location."],
+      ["fa-solid fa-phone", "Contact", "<a href='tel:+233244962073'>+233 24 496 2073</a><br><a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ],
+    "branchGroups": [
+      { "sub": "More International Locations", "title": "Germany", "intro": "Locate branches in Germany.",
+        "branches": [["Branch 1", "Berlin, Germany"], ["Branch 2", "Munich, Germany"], ["Branch 3", "Frankfurt, Germany"], ["Branch 4", "Hamburg, Germany"], ["Branch 5", "Cologne, Germany"]] },
+      { "sub": "More International Locations", "title": "Netherlands", "intro": "Locate branches in the Netherlands.",
+        "branches": [["Branch 1", "Amsterdam, Netherlands"], ["Branch 2", "Rotterdam, Netherlands"], ["Branch 3", "The Hague, Netherlands"], ["Branch 4", "Utrecht, Netherlands"], ["Branch 5", "Eindhoven, Netherlands"]] }
+    ]
+  },
+  {
+    "file": "church-ghana.html", "title": "Ghana", "group": "Find a Church", "bg": "church",
+    "heading": "Ghana", "sub": "Find a Church",
+    "intro": "Explore our Ghana locations, including regional and district branches.",
+    "showcase": ["assets/images/find-a-church-congregation.webp", "Ministers of True Faith Church International gathered at a church event"],
+    "cards": [
+      ["fa-solid fa-location-dot", "Branch Details", "Exact branch addresses and local contacts are to be confirmed. Please contact the headquarters for the branch nearest you."],
+      ["fa-regular fa-clock", "Worship &amp; Prayer", "Sabbath Worship Service: Saturdays, 9:00 AM – 2:00 PM (All Branches).<br>Weekly Fasting and Prayer: usually 9:00 AM – 2:30 PM; the day varies by location."],
+      ["fa-solid fa-phone", "Contact the Headquarters", "<a href='tel:+233244962073'>+233 24 496 2073</a><br><a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ],
+    "branchGroups": [
+      { "sub": "Ghana", "title": "Ghana Branches", "intro": "Regional and district branches across Ghana.",
+        "branches": [["Ashanti East", "Ashanti East, Ghana"], ["Ashanti West", "Ashanti West, Ghana"], ["Brong Ahafo A", "Brong Ahafo A, Ghana"], ["Brong Ahafo B", "Brong Ahafo B, Ghana"], ["Central", "Central Region, Ghana"], ["Eastern North", "Eastern North, Ghana"], ["Eastern South", "Eastern South, Ghana"], ["Greater Accra", "Greater Accra, Ghana"], ["Western", "Western Region, Ghana"]] }
+    ]
+  },
+  {
+    "file": "church-cote-divoire.html", "title": "Côte d’Ivoire", "group": "Find a Church", "bg": "church",
+    "heading": "Côte d’Ivoire", "sub": "Find a Church",
+    "intro": "Locate branches in Côte d’Ivoire.",
+    "showcase": ["assets/images/find-a-church-congregation.webp", "Ministers of True Faith Church International gathered at a church event"],
+    "cards": [
+      ["fa-solid fa-location-dot", "Branch Details", "Exact branch addresses and local contacts are to be confirmed."],
+      ["fa-regular fa-clock", "Worship &amp; Prayer", "Sabbath Worship Service: Saturdays, 9:00 AM – 2:00 PM (All Branches).<br>Weekly Fasting and Prayer: usually 9:00 AM – 2:30 PM; the day varies by location."],
+      ["fa-solid fa-phone", "Contact the Headquarters", "<a href='tel:+233244962073'>+233 24 496 2073</a><br><a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ],
+    "branchGroups": [
+      { "sub": "Côte d’Ivoire", "title": "Côte d’Ivoire Branches", "intro": "Branch locations in Côte d’Ivoire.",
+        "branches": [["Branch 1", "Abidjan, Côte d’Ivoire"], ["Branch 2", "Bouaké, Côte d’Ivoire"], ["Branch 3", "San-Pédro, Côte d’Ivoire"], ["Branch 4", "Yamoussoukro, Côte d’Ivoire"], ["Branch 5", "Korhogo, Côte d’Ivoire"]] }
+    ]
+  },
+  {
+    "file": "church-togo.html", "title": "Togo", "group": "Find a Church", "bg": "church",
+    "heading": "Togo", "sub": "Find a Church",
+    "intro": "Locate branches in Togo.",
+    "showcase": ["assets/images/find-a-church-congregation.webp", "Ministers of True Faith Church International gathered at a church event"],
+    "cards": [
+      ["fa-solid fa-location-dot", "Branch Details", "Exact branch addresses and local contacts are to be confirmed."],
+      ["fa-regular fa-clock", "Worship &amp; Prayer", "Sabbath Worship Service: Saturdays, 9:00 AM – 2:00 PM (All Branches).<br>Weekly Fasting and Prayer: usually 9:00 AM – 2:30 PM; the day varies by location."],
+      ["fa-solid fa-phone", "Contact the Headquarters", "<a href='tel:+233244962073'>+233 24 496 2073</a><br><a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ],
+    "branchGroups": [
+      { "sub": "Togo", "title": "Togo Branches", "intro": "Branch locations in Togo.",
+        "branches": [["Branch 1", "Lomé, Togo"], ["Branch 2", "Sokodé, Togo"], ["Branch 3", "Kara, Togo"], ["Branch 4", "Atakpamé, Togo"], ["Branch 5", "Dapaong, Togo"]] }
+    ]
+  },
+  {
+    "file": "church-usa.html", "title": "USA", "group": "Find a Church", "bg": "church",
+    "heading": "USA", "sub": "Find a Church",
+    "intro": "Locate branches in the United States of America.",
+    "showcase": ["assets/images/find-a-church-congregation.webp", "Ministers of True Faith Church International gathered at a church event"],
+    "cards": [
+      ["fa-solid fa-location-dot", "Branch Details", "Exact branch addresses and local contacts are to be confirmed."],
+      ["fa-regular fa-clock", "Worship &amp; Prayer", "Sabbath Worship Service: Saturdays, 9:00 AM – 2:00 PM (All Branches).<br>Weekly Fasting and Prayer: usually 9:00 AM – 2:30 PM; the day varies by location."],
+      ["fa-solid fa-phone", "Contact the Headquarters", "<a href='tel:+233244962073'>+233 24 496 2073</a><br><a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ],
+    "branchGroups": [
+      { "sub": "USA", "title": "USA Branches", "intro": "Branch locations in the United States of America.",
+        "branches": [["Branch 1", "Washington, DC, USA"], ["Branch 2", "New York, NY, USA"], ["Branch 3", "Atlanta, GA, USA"], ["Branch 4", "Houston, TX, USA"], ["Branch 5", "Los Angeles, CA, USA"]] }
+    ]
+  },
+  {
+    "file": "church-uk.html", "title": "UK", "group": "Find a Church", "bg": "church",
+    "heading": "UK", "sub": "Find a Church",
+    "intro": "Locate branches in the United Kingdom.",
+    "showcase": ["assets/images/find-a-church-congregation.webp", "Ministers of True Faith Church International gathered at a church event"],
+    "cards": [
+      ["fa-solid fa-location-dot", "Branch Details", "Exact branch addresses and local contacts are to be confirmed."],
+      ["fa-regular fa-clock", "Worship &amp; Prayer", "Sabbath Worship Service: Saturdays, 9:00 AM – 2:00 PM (All Branches).<br>Weekly Fasting and Prayer: usually 9:00 AM – 2:30 PM; the day varies by location."],
+      ["fa-solid fa-phone", "Contact the Headquarters", "<a href='tel:+233244962073'>+233 24 496 2073</a><br><a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ],
+    "branchGroups": [
+      { "sub": "UK", "title": "UK Branches", "intro": "Branch locations in the United Kingdom.",
+        "branches": [["Branch 1", "London, UK"], ["Branch 2", "Manchester, UK"], ["Branch 3", "Birmingham, UK"], ["Branch 4", "Glasgow, UK"], ["Branch 5", "Leeds, UK"]] }
+    ]
+  },
+  {
+    "file": "church-canada.html", "title": "Canada", "group": "Find a Church", "bg": "church",
+    "heading": "Canada", "sub": "Find a Church",
+    "intro": "Locate branches in Canada.",
+    "showcase": ["assets/images/find-a-church-congregation.webp", "Ministers of True Faith Church International gathered at a church event"],
+    "cards": [
+      ["fa-solid fa-location-dot", "Branch Details", "Exact branch addresses and local contacts are to be confirmed."],
+      ["fa-regular fa-clock", "Worship &amp; Prayer", "Sabbath Worship Service: Saturdays, 9:00 AM – 2:00 PM (All Branches).<br>Weekly Fasting and Prayer: usually 9:00 AM – 2:30 PM; the day varies by location."],
+      ["fa-solid fa-phone", "Contact the Headquarters", "<a href='tel:+233244962073'>+233 24 496 2073</a><br><a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ],
+    "branchGroups": [
+      { "sub": "Canada", "title": "Canada Branches", "intro": "Branch locations in Canada.",
+        "branches": [["Branch 1", "Toronto, Canada"], ["Branch 2", "Vancouver, Canada"], ["Branch 3", "Montreal, Canada"], ["Branch 4", "Calgary, Canada"], ["Branch 5", "Ottawa, Canada"]] }
+    ]
+  },
+  {
+    "file": "church-dubai.html", "title": "Dubai", "group": "Find a Church", "bg": "church",
+    "heading": "Dubai", "sub": "Find a Church",
+    "intro": "Locate branches in Dubai.",
+    "showcase": ["assets/images/find-a-church-congregation.webp", "Ministers of True Faith Church International gathered at a church event"],
+    "cards": [
+      ["fa-solid fa-location-dot", "Branch Details", "Exact branch addresses and local contacts are to be confirmed."],
+      ["fa-regular fa-clock", "Worship &amp; Prayer", "Sabbath Worship Service: Saturdays, 9:00 AM – 2:00 PM (All Branches).<br>Weekly Fasting and Prayer: usually 9:00 AM – 2:30 PM; the day varies by location."],
+      ["fa-solid fa-phone", "Contact the Headquarters", "<a href='tel:+233244962073'>+233 24 496 2073</a><br><a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ],
+    "branchGroups": [
+      { "sub": "Dubai", "title": "Dubai &amp; UAE Branches", "intro": "Branch locations in Dubai and the wider United Arab Emirates.",
+        "branches": [["Branch 1", "Dubai Marina, UAE"], ["Branch 2", "Deira, UAE"], ["Branch 3", "Jumeirah, UAE"], ["Branch 4", "Bur Dubai, UAE"], ["Branch 5", "Sharjah, UAE"]] }
+    ]
+  },
+
+  {
+    "file": "leadership-headquarters.html", "title": "Headquarters", "group": "Leadership", "bg": "crowd",
+    "sub": "Leadership",
+    "intro": "The leadership of True Faith Church International at the headquarters, Kwahu Praso, Ghana.",
+    "team": [
+      ["Apostle Thomas Adu Bempah", "Acting General Overseer"],
+      ["Name to be confirmed", "Headquarters Leader"],
+      ["Name to be confirmed", "Headquarters Leader"],
+      ["Name to be confirmed", "Headquarters Leader"],
+      ["Name to be confirmed", "Headquarters Leader"]
+    ],
+    "cards": [
+      ["fa-solid fa-book-bible", "Our Founder", "Apostle Samuel Brako of blessed memory, popularly known as Kwame Panin, a native of Osiem in the Eastern Region of Ghana, who received his divine calling in 1914."],
+      ["fa-solid fa-phone", "Contact the Headquarters", "<a href='tel:+233244962073'>+233 24 496 2073</a><br><a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ]
+  },
+  {
+    "file": "leadership-districts.html", "title": "Districts", "group": "Leadership", "bg": "crowd",
+    "sub": "Leadership",
+    "intro": "District leadership of True Faith Church International. Names and photographs are to be confirmed.",
+    "team": [
+      ["Name to be confirmed", "District Leader"], ["Name to be confirmed", "District Leader"],
+      ["Name to be confirmed", "District Leader"], ["Name to be confirmed", "District Leader"],
+      ["Name to be confirmed", "District Leader"], ["Name to be confirmed", "District Leader"],
+      ["Name to be confirmed", "District Leader"], ["Name to be confirmed", "District Leader"],
+      ["Name to be confirmed", "District Leader"], ["Name to be confirmed", "District Leader"]
+    ],
+    "cards": [
+      ["fa-solid fa-sitemap", "Districts", "The list of districts is to be confirmed."],
+      ["fa-solid fa-phone", "Contact the Headquarters", "<a href='tel:+233244962073'>+233 24 496 2073</a><br><a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ]
+  },
+  {
+    "file": "leadership-zones.html", "title": "Zones", "group": "Leadership", "bg": "crowd",
+    "sub": "Leadership",
+    "intro": "Zone leadership of True Faith Church International. Names and photographs are to be confirmed.",
+    "team": [
+      ["Name to be confirmed", "Zone Leader"], ["Name to be confirmed", "Zone Leader"],
+      ["Name to be confirmed", "Zone Leader"], ["Name to be confirmed", "Zone Leader"],
+      ["Name to be confirmed", "Zone Leader"], ["Name to be confirmed", "Zone Leader"],
+      ["Name to be confirmed", "Zone Leader"], ["Name to be confirmed", "Zone Leader"],
+      ["Name to be confirmed", "Zone Leader"], ["Name to be confirmed", "Zone Leader"]
+    ],
+    "cards": [
+      ["fa-solid fa-sitemap", "Zones", "The list of zones is to be confirmed."],
+      ["fa-solid fa-phone", "Contact the Headquarters", "<a href='tel:+233244962073'>+233 24 496 2073</a><br><a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ]
+  },
+
+  {
+    "file": "ministries.html", "title": "Ministries", "group": null, "bg": "bible",
+    "heading": "Ministries", "sub": "Ministries", "grid": "Ministries",
+    "intro": "Through our ministries, True Faith Church International serves God and humanity â€” to preach, practice, and propagate the Word of God.",
+    "cards": []
+  },
+  {
+    "file": "ministry-women-commission.html", "title": "Women Commission", "group": "Ministries", "bg": "bible",
+    "layout": "ministry", "thumb": "https://images.pixieset.com/572383421/ef27f010e20b3ec1363e81e0a2ef788e-xlarge.JPG",
+    "photos": [["https://images.pixieset.com/572383421/5d2543ad984f6cbbfd5d6a786c4f9399-xlarge.JPG", "Women of the church in worship"], ["https://images.pixieset.com/572383421/e61f5533d5c447f8e4f77c54f341610a-xlarge.JPG", "Women rejoicing in worship"]],
+    "sub": "Ministries",
+    "intro": "The Women Commission encourages the women of True Faith Church International in holiness, prayer, and faithful service in the home, the church, and society.",
+    "cards": [
+      ["fa-solid fa-bullseye", "Our Focus", "Living holy, sober, righteous, and godly lives, and upholding faithfulness and family unity."],
+      ["fa-solid fa-hand-holding-heart", "Rooted in Our Values", "Holiness, Prayer &amp; Fasting, Unity &amp; Love, and Service."],
+      ["fa-regular fa-calendar", "Meetings &amp; Leaders", "Meeting times and leaders are to be confirmed. Please contact the church office."]
+    ]
+  },
+  {
+    "file": "ministry-church-administration.html", "title": "Church Administration", "group": "Ministries", "bg": "bible",
+    "layout": "ministry", "thumb": "https://images.pixieset.com/572383421/b411688933ede73d7512a9b1892155e0-xlarge.JPG",
+    "photos": [["https://images.pixieset.com/572383421/08af3c0dd90ae0011e22ad784e08648b-xlarge.JPG", "Members rejoicing"], ["https://images.pixieset.com/572383421/b39a9acb94dc12f456d7c65b9426d52b-xlarge.JPG", "Member listening during the service"]],
+    "sub": "Ministries",
+    "intro": "Church Administration supports the orderly running of True Faith Church International. We believe the church is the body of Christ, guided by the Holy Scriptures, united in one faith and one purpose, and governed according to biblical principles.",
+    "cards": [
+      ["fa-solid fa-bullseye", "Our Focus", "Order, discipline, and faithful stewardship in the life of the church."],
+      ["fa-solid fa-hand-holding-heart", "Rooted in Our Values", "Obedience, Discipline, Unity &amp; Love, and Service."],
+      ["fa-solid fa-phone", "Church Office", "<a href='tel:+233244962073'>+233 24 496 2073</a><br><a href='mailto:info@truefaithchurchintl.org'>info@truefaithchurchintl.org</a>"]
+    ]
+  },
+  {
+    "file": "ministry-youth.html", "title": "Youth Ministry", "group": "Ministries", "bg": "bible",
+    "layout": "ministry", "thumb": "https://images.pixieset.com/572383421/3d27984c022f6cab48267cf886b74706-xlarge.JPG",
+    "photos": [["https://images.pixieset.com/572383421/9d8ef817785140bc2607ba6edd2930f4-xlarge.JPG", "Brothers ministering in song"], ["https://images.pixieset.com/572383421/7bb6dff66d9fb1fb0172fdc77132800a-xlarge.JPG", "Singing group ministering"]],
+    "sub": "Ministries",
+    "intro": "The Youth Ministry helps young people of True Faith Church International to grow in the Word of God, Christian discipline, and faithful Sabbath worship.",
+    "cards": [
+      ["fa-solid fa-bullseye", "Our Focus", "Raising young believers who uphold the truth of God's Word through holiness and faithful Christian living."],
+      ["fa-solid fa-hand-holding-heart", "Rooted in Our Values", "Holiness, Obedience, Sabbath, Evangelism, and Discipline."],
+      ["fa-regular fa-calendar", "Meetings &amp; Leaders", "Meeting times and leaders are to be confirmed. Please contact the church office."]
+    ]
+  },
+  {
+    "file": "ministry-evangelism.html", "title": "Evangelism Ministry", "group": "Ministries", "bg": "bible",
+    "layout": "ministry", "thumb": "https://images.pixieset.com/572383421/b128d9da0d7efcd35473071bc5b82acf-xlarge.JPG",
+    "photos": [["https://images.pixieset.com/572383421/a7ebf080cf2bd15da06236b80e2c046d-xlarge.JPG", "Ministers on stage"], ["https://images.pixieset.com/572383421/04030341e8ab05e393bb3d77097f5047-xlarge.JPG", "Members ministering together"]],
+    "sub": "Ministries",
+    "intro": "We believe in preaching, practicing, and propagating the Gospel of Jesus Christ through prayer, teaching, missions, and evangelism throughout the world (Matthew 28:19–20; Mark 16:15; Acts 1:8; Romans 10:14–15).",
+    "cards": [
+      ["fa-solid fa-bullhorn", "Our Mission", "Proclaiming the Gospel of Jesus Christ to all nations through Sabbath observance, prayer, and evangelism."],
+      ["fa-solid fa-water", "Our Heritage", "From its beginnings, the ministry grew through prayer, fasting, evangelism, and baptism by immersion in rivers and streams, following the example of the early church."],
+      ["fa-regular fa-calendar", "Outreach &amp; Leaders", "Outreach programmes and leaders are to be confirmed. Please contact the church office."]
+    ]
+  },
+  {
+    "file": "ministry-children.html", "title": "Children's Ministry", "group": "Ministries", "bg": "bible",
+    "layout": "ministry", "thumb": "https://images.pixieset.com/572383421/2e782905081edcd80587348e1f0099c9-xlarge.JPG",
+    "photos": [["https://images.pixieset.com/572383421/2f5a70deb0c48838b80598ba0c879abc-xlarge.JPG", "Members during the service"], ["https://images.pixieset.com/572383421/cbff73764912c15834d5d812b1620027-xlarge.JPG", "Members in worship"]],
+    "sub": "Ministries",
+    "intro": "The Children's Ministry nurtures the children of True Faith Church International in the pure truth of the Kingdom of God.",
+    "cards": [
+      ["fa-solid fa-bullseye", "Our Focus", "Teaching children the Holy Scriptures, the inspired Word of God, from an early age."],
+      ["fa-solid fa-hand-holding-heart", "Rooted in Our Values", "Obedience, Sabbath, Unity &amp; Love, and Discipline."],
+      ["fa-regular fa-calendar", "Meetings &amp; Leaders", "Meeting times and leaders are to be confirmed. Please contact the church office."]
+    ]
+  },
+  {
+    "file": "ministry-prophetic.html", "title": "Prophetic Ministry", "group": "Ministries", "bg": "bible",
+    "layout": "ministry", "thumb": "https://images.pixieset.com/572383421/1071212f222ef50466b053a1859f3e67-xlarge.JPG",
+    "photos": [["https://images.pixieset.com/572383421/8407ee5c61062970eec4ba9c55f69684-xlarge.JPG", "Members kneeling in prayer at the front"], ["https://images.pixieset.com/572383421/d8d7e4425af13d08a39650f2c181d4a2-xlarge.JPG", "Member in prayer"]],
+    "sub": "Ministries",
+    "intro": "We believe that the Holy Spirit works through numerous spiritual gifts and talents within the church and empowers believers for Christian life and ministry (John 14:26; Acts 1:8; 1 Corinthians 12:4–11; Galatians 5:22–23).",
+    "cards": [
+      ["fa-solid fa-dove", "Our Focus", "Prayer, fasting, and obedience to the voice of God, guided by the Holy Scriptures."],
+      ["fa-solid fa-hand-holding-heart", "Rooted in Our Values", "Holiness, Obedience, and Prayer &amp; Fasting."],
+      ["fa-regular fa-calendar", "Meetings &amp; Leaders", "Meeting times and leaders are to be confirmed. Please contact the church office."]
+    ]
+  },
+  {
+    "file": "ministry-soul.html", "title": "Soul Ministry", "group": "Ministries", "bg": "bible",
+    "layout": "ministry", "thumb": "https://images.pixieset.com/572383421/691be82d8cf8a01c112a69c5dd39992d-xlarge.JPG",
+    "photos": [["https://images.pixieset.com/572383421/35134a070039c36b686cb9e90daaec9a-xlarge.JPG", "Women of the church"], ["https://images.pixieset.com/572383421/32c6da2d27d400e2a718f855d2bd82d3-xlarge.JPG", "Member in worship"]],
+    "sub": "Ministries",
+    "intro": "The Soul Ministry of True Faith Church International. A full description of this ministry and its programmes is to be confirmed.",
+    "cards": [
+      ["fa-solid fa-bullseye", "Our Calling", "To preach, practice, and propagate the Word of God, and to maintain peace, harmony, and love among mankind through prayer, evangelism, and service."],
+      ["fa-solid fa-hand-holding-heart", "Rooted in Our Values", "Prayer &amp; Fasting, Evangelism, Unity &amp; Love, and Service."],
+      ["fa-regular fa-calendar", "Meetings &amp; Leaders", "Meeting times and leaders are to be confirmed. Please contact the church office."]
+    ]
+  }
+]
