@@ -1519,7 +1519,6 @@ header.main-header .header-sticky.active:not(.hide) { transform: translateY(0); 
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .scrolling-ticker-box, .hero .hero-bg, .watch-video-circle svg.ring { animation: none; }
-  .hero .hero-video { display: none; }
 }
 
 /* ==========================================================

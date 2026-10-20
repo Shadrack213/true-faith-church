@@ -228,8 +228,15 @@
   if (heroVideo) {
     var START = 3.5; // seconds of black fade-in at the start of the clip
     heroVideo.loop = false; // looping is handled below so it restarts after the intro
+    var stillOnly = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (stillOnly) heroVideo.removeAttribute('autoplay');
     var jumpToStart = function () {
       try { heroVideo.currentTime = START; } catch (e) {}
+      if (stillOnly) { // "reduce motion" visitors see a still frame of the video
+        heroVideo.pause();
+        heroVideo.addEventListener('seeked', function () { heroVideo.classList.add('ready'); }, { once: true });
+        return;
+      }
       var p = heroVideo.play();
       if (p && p.catch) p.catch(function () {});
     };
