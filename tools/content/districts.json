@@ -1,0 +1,31 @@
+{
+  "total": 80,
+  "note": "25 of the church's 80 districts are listed. Kumasi and Accra are confirmed; Asawinso is named on the Youth Impact Night flyer; District 4 to District 25 are temporary placeholders. Replace a placeholder's name (and set placeholder to false) or add new entries, then run tools/build-pages.ps1.",
+  "districts": [
+    { "id": "kumasi-district",   "name": "Kumasi District" },
+    { "id": "accra-district",    "name": "Accra District" },
+    { "id": "asawinso-district", "name": "Asawinso District" },
+    { "id": "district-4",  "name": "District 4",  "placeholder": true },
+    { "id": "district-5",  "name": "District 5",  "placeholder": true },
+    { "id": "district-6",  "name": "District 6",  "placeholder": true },
+    { "id": "district-7",  "name": "District 7",  "placeholder": true },
+    { "id": "district-8",  "name": "District 8",  "placeholder": true },
+    { "id": "district-9",  "name": "District 9",  "placeholder": true },
+    { "id": "district-10", "name": "District 10", "placeholder": true },
+    { "id": "district-11", "name": "District 11", "placeholder": true },
+    { "id": "district-12", "name": "District 12", "placeholder": true },
+    { "id": "district-13", "name": "District 13", "placeholder": true },
+    { "id": "district-14", "name": "District 14", "placeholder": true },
+    { "id": "district-15", "name": "District 15", "placeholder": true },
+    { "id": "district-16", "name": "District 16", "placeholder": true },
+    { "id": "district-17", "name": "District 17", "placeholder": true },
+    { "id": "district-18", "name": "District 18", "placeholder": true },
+    { "id": "district-19", "name": "District 19", "placeholder": true },
+    { "id": "district-20", "name": "District 20", "placeholder": true },
+    { "id": "district-21", "name": "District 21", "placeholder": true },
+    { "id": "district-22", "name": "District 22", "placeholder": true },
+    { "id": "district-23", "name": "District 23", "placeholder": true },
+    { "id": "district-24", "name": "District 24", "placeholder": true },
+    { "id": "district-25", "name": "District 25", "placeholder": true }
+  ]
+}

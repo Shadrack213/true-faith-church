@@ -1,0 +1,22 @@
+[
+  { "id": "ashanti-region",     "name": "Ashanti Region" },
+  { "id": "ashanti-east",       "name": "Ashanti East" },
+  { "id": "ashanti-west",       "name": "Ashanti West" },
+  { "id": "brong-ahafo",        "name": "Brong Ahafo" },
+  { "id": "brong-ahafo-east",   "name": "Brong Ahafo East" },
+  { "id": "brong-ahafo-west",   "name": "Brong Ahafo West" },
+  { "id": "central-region",     "name": "Central Region" },
+  { "id": "eastern-north",      "name": "Eastern North" },
+  { "id": "eastern-south",      "name": "Eastern South" },
+  { "id": "greater-accra",      "name": "Greater Accra" },
+  { "id": "greater-accra-east", "name": "Greater Accra East" },
+  { "id": "greater-accra-west", "name": "Greater Accra West" },
+  { "id": "western-region",     "name": "Western Region" },
+  { "id": "western-north",      "name": "Western North" },
+  { "id": "volta-region",       "name": "Volta Region" },
+  { "id": "oti-region",         "name": "Oti Region" },
+  { "id": "northern-region",    "name": "Northern Region" },
+  { "id": "upper-east-region",  "name": "Upper East Region" },
+  { "id": "upper-west-region",  "name": "Upper West Region" },
+  { "id": "bono-east-region",   "name": "Bono East Region" }
+]

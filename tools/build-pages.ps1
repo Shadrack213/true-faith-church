@@ -62,6 +62,24 @@ $groups = @{
 #   cards: [[icon, title, html], ...], extra (optional HTML fragment in tools/content)
 $contentDir = Join-Path $PSScriptRoot 'content'
 $pages = [IO.File]::ReadAllText((Join-Path $contentDir 'pages.json'), $utf8) | ConvertFrom-Json
+# One page per region and per district (same layout as National Events),
+# from tools/content/regions.json and tools/content/districts.json
+$regions = [IO.File]::ReadAllText((Join-Path $contentDir 'regions.json'), $utf8) | ConvertFrom-Json
+$districtInfo = [IO.File]::ReadAllText((Join-Path $contentDir 'districts.json'), $utf8) | ConvertFrom-Json
+$districts = @($districtInfo.districts)
+$areaKinds = @{
+  region   = @{ list = $regions;   overview = 'events-regional.html'; label = 'Regional'; crumb = 'Regional Events'; back = 'All Regions' }
+  district = @{ list = $districts; overview = 'events-district.html'; label = 'District'; crumb = 'District Events'; back = 'All Districts' }
+}
+foreach ($kind in 'region', 'district') {
+  foreach ($a in $areaKinds[$kind].list) {
+    $pages += [pscustomobject]@{
+      file = "events-$($a.id).html"; title = $a.name; group = 'Events'; bg = 'praise'
+      custom = $true; ownHeader = $true; extra = 'events-area.html'
+      areaKind = $kind; areaId = $a.id; navParent = $areaKinds[$kind].overview; cards = @()
+    }
+  }
+}
 $byFile = @{}
 foreach ($x in $pages) { $byFile[$x.file] = $x }
 
@@ -74,6 +92,7 @@ foreach ($pg in $pages) {
   $crumbs = '<li><a href="index.html">Home</a></li>'
   if ($g -eq 'Ministries') { $crumbs += '<li><a href="ministries.html">Ministries</a></li>' }
   elseif ($g) { $crumbs += "<li>$g</li>" }
+  if ($pg.areaKind) { $ak = $areaKinds[$pg.areaKind]; $crumbs += "<li><a href=`"$($ak.overview)`">$($ak.crumb)</a></li>" }
   $crumbs += "<li aria-current=`"page`">$($pg.title)</li>"
 
   $cardHtml = ($pg.cards | ForEach-Object {
@@ -161,7 +180,7 @@ $bcards
   $siblings = ''
   if ($g) {
     $links = ($groups[$g] | ForEach-Object {
-      $cls = if ($_[0] -eq $pg.file) { ' class="current" aria-current="page"' } else { '' }
+      $cls = if ($_[0] -eq $pg.file -or $_[0] -eq $pg.navParent) { ' class="current" aria-current="page"' } else { '' }
       "<a href=`"$($_[0])`"$cls>$($_[1])</a>"
     }) -join ''
     $siblings = "      <div class=`"sibling-nav`" aria-label=`"$g pages`">$links</div>"
@@ -169,6 +188,81 @@ $bcards
 
   # Tokens a shared `extra` fragment can use (e.g. one Events layout for all three pages)
   $extra = $extra.Replace('{{TITLE}}', $pg.title).Replace('{{BG}}', $img[$pg.bg]).Replace('{{CRUMBS}}', $crumbs).Replace('{{SIBLINGS}}', $siblings)
+
+  # Regional / District Events: the overview pages list every area as a card;
+  # each area has its own page. Events come from assets/js/events-data.js.
+  $dataScript = ''
+  $filterHtml = ''
+  if ($pg.areaKind) {
+    $ak = $areaKinds[$pg.areaKind]
+    $extra = $extra.Replace('{{AREA}}', "$($pg.areaKind):$($pg.areaId)").Replace('{{KIND_LABEL}}', $ak.label).Replace('{{BACK_URL}}', $ak.overview).Replace('{{BACK_TEXT}}', $ak.back)
+    $dataScript = "<script src=`"assets/js/events-data.js`"></script>`n"
+  }
+  if ($pg.eventsFilter) {
+    $kind = $pg.eventsFilter                       # "region" or "district"
+    $tiles = ($areaKinds[$kind].list | ForEach-Object {
+      $sub = if ($_.placeholder) { 'Name to be confirmed' } else { 'View events' }
+      $countAttr = if ($_.placeholder) { '' } else { " data-area-count=`"$($kind):$($_.id)`"" }
+      "        <a class=`"region-tile reveal`" href=`"events-$($_.id).html`"><span class=`"region-icon`"><i class=`"fa-solid fa-location-dot`" aria-hidden=`"true`"></i></span><span class=`"region-text`"><strong>$($_.name)</strong><small$countAttr>$sub</small></span><i class=`"fa-solid fa-arrow-right region-arrow`" aria-hidden=`"true`"></i></a>"
+    }) -join "`n"
+    $note = ''
+    if ($kind -eq 'district' -and $districtInfo.total) {
+      $note = "      <p class=`"region-grid-note`">Showing $($districts.Count) of $($districtInfo.total) districts &mdash; more will be added.</p>`n"
+    }
+    $filterHtml = "$note      <div class=`"region-grid`">`n$tiles`n      </div>`n"
+
+    # Hero: one ticket-card slide per area (rotates; arrows + auto-play from main.js).
+    # If an area has an upcoming event in events-data.js, main.js shows it on its slide.
+    $photos = @('9d8ef817785140bc2607ba6edd2930f4','2e782905081edcd80587348e1f0099c9','1071212f222ef50466b053a1859f3e67',
+                '3d27984c022f6cab48267cf886b74706','b411688933ede73d7512a9b1892155e0','7bb6dff66d9fb1fb0172fdc77132800a',
+                'ef27f010e20b3ec1363e81e0a2ef788e','691be82d8cf8a01c112a69c5dd39992d','08af3c0dd90ae0011e22ad784e08648b',
+                '5d2543ad984f6cbbfd5d6a786c4f9399')
+    $list = @($areaKinds[$kind].list)
+    $label = $areaKinds[$kind].label
+    $noun = if ($kind -eq 'region') { 'Region' } else { 'District' }
+    $i = 0
+    $slides = ($list | ForEach-Object {
+      $i++
+      $active = if ($i -eq 1) { ' is-active' } else { '' }
+      $photo = "https://images.pixieset.com/572383421/$($photos[($i - 1) % $photos.Count])-xlarge.JPG"
+      $nameNote = if ($_.placeholder) { ' (name to be confirmed)' } else { '' }
+      @"
+          <article class="ticket-card$active" aria-roledescription="slide" aria-label="$i of $($list.Count): $($_.name)" data-area-slide="$($kind):$($_.id)">
+            <div class="ticket-card-body">
+              <span class="ticket-cat">$noun $i of $($list.Count) &middot; $label Programme</span>
+              <h2 data-slide-title>$($_.name)$nameNote</h2>
+              <p class="ticket-sub" data-slide-sub>Programme to be announced. Details of upcoming $($_.name) programmes will be published once confirmed.</p>
+              <ul class="ticket-meta" data-slide-meta>
+                <li><i class="fa-regular fa-calendar"></i>Sabbath Worship: Saturdays</li>
+                <li><i class="fa-regular fa-clock"></i>9:00 AM &ndash; 2:00 PM (All Branches)</li>
+              </ul>
+              <div class="ticket-actions">
+                <a href="events-$($_.id).html" class="btn-default">View $($_.name)</a>
+                <a href="#past-events" class="ticket-link">All $($noun)s</a>
+              </div>
+            </div>
+            <figure class="ticket-img"><img src="$photo" alt="True Faith Church International gathering" loading="lazy"></figure>
+          </article>
+"@
+    }) -join "`n"
+    $heroSlider = @"
+      <div class="events-slider" aria-roledescription="carousel" aria-label="$label programmes">
+        <button class="events-slider-arrow prev" type="button" aria-label="Previous $($noun.ToLower())"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="events-slides">
+$slides
+        </div>
+        <button class="events-slider-arrow next" type="button" aria-label="Next $($noun.ToLower())"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+"@
+    $hs = $extra.IndexOf('<!-- HERO-SLIDER')
+    $he = $extra.IndexOf('<!-- /HERO-SLIDER -->')
+    if ($hs -ge 0 -and $he -gt $hs) { $extra = $extra.Remove($hs, $he + '<!-- /HERO-SLIDER -->'.Length - $hs).Insert($hs, $heroSlider) }
+    $s = $extra.IndexOf('<!-- STATIC-EVENTS')
+    $e = $extra.IndexOf('<!-- /STATIC-EVENTS -->')
+    if ($s -ge 0 -and $e -gt $s) { $extra = $extra.Remove($s, $e + '<!-- /STATIC-EVENTS -->'.Length - $s) }
+    $dataScript = "<script src=`"assets/js/events-data.js`"></script>`n"
+  }
+  $extra = $extra.Replace('{{EVENT_FILTER}}', $filterHtml)
 
   # "ownHeader": true pages draw their own hero inside `extra`
   $pageHeader = ''
@@ -272,7 +366,7 @@ $tiles
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body$(if ($pg.navParent) { " data-nav-parent=`"$($pg.navParent)`"" })>
 
 $header
 
@@ -282,7 +376,7 @@ $pageHeader$contentSection$extra
 
 $footer
 
-<script src="assets/js/main.js"></script>
+$dataScript<script src="assets/js/main.js"></script>
 </body>
 </html>
 "@

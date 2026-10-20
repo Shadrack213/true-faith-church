@@ -47,6 +47,7 @@
   },
   {
     "file": "events-regional.html", "title": "Regional Events", "group": "Events", "bg": "praise",
+    "eventsFilter": "region",
     "custom": true, "ownHeader": true, "extra": "events-extra.html",
     "sub": "Events",
     "intro": "Regional events of True Faith Church International. Dates, venues, and programmes for upcoming regional events are to be confirmed and will be published here.",
@@ -58,6 +59,7 @@
   },
   {
     "file": "events-district.html", "title": "District Events", "group": "Events", "bg": "praise",
+    "eventsFilter": "district",
     "custom": true, "ownHeader": true, "extra": "events-extra.html",
     "sub": "Events",
     "intro": "District events of True Faith Church International. Dates, venues, and programmes for upcoming district events are to be confirmed and will be published here.",

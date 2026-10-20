@@ -98,6 +98,8 @@
 
   /* ---------- Current page highlighting ---------- */
   var here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  // Pages that aren't in the menu (e.g. a region page) name the menu item to highlight
+  if (document.body.getAttribute('data-nav-parent')) here = document.body.getAttribute('data-nav-parent').toLowerCase();
   menu.querySelectorAll('a[href]').forEach(function (a) {
     var target = a.getAttribute('href').split('#')[0].toLowerCase();
     if (target === here) {
@@ -513,6 +515,61 @@
     if (bar) bar.addEventListener('animationend', function () { go(idx + 1, 1); });
     items.forEach(function (s, i) { s.setAttribute('aria-hidden', i === 0 ? 'false' : 'true'); });
     restartBar();
+  });
+
+  /* ---------- Regional & District Events (data: assets/js/events-data.js) ---------- */
+  var evData = window.TFCI_EVENTS || {};
+  var evEsc = function (s) { var d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; };
+  var evSafeUrl = function (u) { return /^(https?:\/\/|assets\/|[\w-]+\.html)/i.test(u || '') ? u : ''; };
+  var evCard = function (ev) {
+    var link = evSafeUrl(ev.link);
+    var img = evSafeUrl(ev.image);
+    var tag = link ? 'a' : 'article';
+    var attrs = link ? ' href="' + evEsc(link) + '"' + (/^https?:/i.test(link) ? ' target="_blank" rel="noopener"' : '') : '';
+    return '<' + tag + ' class="past-event-card"' + attrs + '>' +
+      '<figure class="past-event-image">' +
+        (img ? '<img src="' + evEsc(img) + '" alt="" loading="lazy">' : '<span class="events-noimage"><i class="fa-regular fa-calendar"></i></span>') +
+      '</figure>' +
+      '<div class="past-event-info">' +
+        '<p class="past-event-date"><i class="fa-regular fa-calendar"></i>' + evEsc(ev.date || 'Date to be confirmed') + '</p>' +
+        '<h3>' + evEsc(ev.title) + '</h3>' +
+        (ev.place ? '<p class="past-event-place"><i class="fa-solid fa-location-dot"></i>' + evEsc(ev.place) + '</p>' : '') +
+      '</div>' +
+    '</' + tag + '>';
+  };
+  // "region:ashanti-east" -> { upcoming: [...], past: [...] }
+  var evFor = function (key) {
+    var parts = (key || '').split(':');
+    var isRegion = parts[0] === 'region';
+    var up = (isRegion ? evData.regionalEvents : evData.districtEvents) || {};
+    var past = (isRegion ? evData.regionalPastEvents : evData.districtPastEvents) || {};
+    return { region: isRegion, upcoming: up[parts[1]] || [], past: past[parts[1]] || [] };
+  };
+
+  // An area page: past events replace the placeholder cards once some are added
+  document.querySelectorAll('[data-area-past]').forEach(function (grid) {
+    var past = evFor(grid.getAttribute('data-area-past')).past;
+    if (past.length) grid.innerHTML = past.map(evCard).join('');
+  });
+
+  // Overview hero slides: show an area's next upcoming event when there is one
+  document.querySelectorAll('[data-area-slide]').forEach(function (slide) {
+    var next = evFor(slide.getAttribute('data-area-slide')).upcoming[0];
+    if (!next) return;
+    var name = slide.querySelector('[data-slide-title]').textContent;
+    slide.querySelector('[data-slide-title]').textContent = next.title;
+    slide.querySelector('[data-slide-sub]').textContent = name + (next.place ? ' · ' + next.place : '');
+    slide.querySelector('[data-slide-meta]').innerHTML =
+      '<li><i class="fa-regular fa-calendar"></i>' + evEsc(next.date || 'Date to be confirmed') + '</li>' +
+      (next.place ? '<li><i class="fa-solid fa-location-dot"></i>' + evEsc(next.place) + '</li>' : '');
+    if (evSafeUrl(next.image)) slide.querySelector('.ticket-img img').src = next.image;
+  });
+
+  // Overview cards: how many events (upcoming + past) each area has
+  document.querySelectorAll('[data-area-count]').forEach(function (el) {
+    var ev = evFor(el.getAttribute('data-area-count'));
+    var n = ev.upcoming.length + ev.past.length;
+    el.textContent = n ? n + (n === 1 ? ' event' : ' events') : 'No events yet';
   });
 
   /* ---------- Contact form: opens the visitor's email app (no server) ---------- */

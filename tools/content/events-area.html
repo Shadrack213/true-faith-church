@@ -1,0 +1,114 @@
+  <!-- Region / district page (same layout as National Events). Generated for every entry in
+       tools/content/regions.json and tools/content/districts.json.
+       {{AREA}} = "region:<id>" or "district:<id>" — the key used in assets/js/events-data.js -->
+  <section class="events-hero dark-section">
+    <div class="page-bg" style="background-image:url('{{BG}}')"></div>
+    <div class="container">
+      <div class="events-hero-title">
+        <span class="events-hero-sub">• True Faith Church International {{KIND_LABEL}} Events •</span>
+        <h1>{{TITLE}}</h1>
+        <ol class="breadcrumb">{{CRUMBS}}</ol>
+      </div>
+
+      <div class="events-slider events-slider-single" aria-label="Programme">
+        <div class="events-slides">
+          <!-- Shows this area's next upcoming event automatically when one is added in events-data.js -->
+          <article class="ticket-card is-active" aria-label="{{TITLE}} programme" data-area-slide="{{AREA}}">
+            <div class="ticket-card-body">
+              <span class="ticket-cat">{{TITLE}} · {{KIND_LABEL}} Programme</span>
+              <h2 data-slide-title>Programme to be announced</h2>
+              <p class="ticket-sub" data-slide-sub>Details of upcoming {{TITLE}} programmes will be published here once confirmed.</p>
+              <ul class="ticket-meta" data-slide-meta>
+                <li><i class="fa-regular fa-calendar"></i>Sabbath Worship: Saturdays</li>
+                <li><i class="fa-regular fa-clock"></i>9:00 AM – 2:00 PM (All Branches)</li>
+              </ul>
+              <div class="ticket-actions">
+                <a href="contact.html" class="btn-default">Contact Us</a>
+                <a href="{{BACK_URL}}" class="ticket-link">{{BACK_TEXT}}</a>
+              </div>
+            </div>
+            <figure class="ticket-img"><img src="assets/images/find-a-church-congregation.webp" alt="Ministers of True Faith Church International gathered at a church event" loading="lazy"></figure>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Past events (same cards as National Events). Placeholders show until real past events
+       are added for this area in assets/js/events-data.js -->
+  <section class="past-events" id="past-events">
+    <div class="container">
+      <div class="section-title section-title-center">
+        <span class="section-sub-title">{{TITLE}}</span>
+        <h2>Past Events</h2>
+        <p>Look back on gatherings of True Faith Church International in {{TITLE}}. More events will be added here as they are confirmed.</p>
+      </div>
+{{SIBLINGS}}
+      <div class="past-event-grid" data-area-past="{{AREA}}">
+        <article class="past-event-card reveal">
+          <figure class="past-event-image">
+            <img src="https://images.pixieset.com/572383421/b411688933ede73d7512a9b1892155e0-xlarge.JPG" alt="Brethren standing together" loading="lazy">
+            <span class="past-event-zoom" aria-hidden="true"><i class="fa-solid fa-images"></i></span>
+          </figure>
+          <div class="past-event-info">
+            <p class="past-event-date"><i class="fa-regular fa-calendar"></i>Date TBC</p>
+            <h3>Event title to be confirmed</h3>
+            <p class="past-event-place"><i class="fa-solid fa-location-dot"></i>Location TBC</p>
+          </div>
+        </article>
+        <article class="past-event-card reveal">
+          <figure class="past-event-image">
+            <img src="https://images.pixieset.com/572383421/e61f5533d5c447f8e4f77c54f341610a-xlarge.JPG" alt="Women rejoicing in worship" loading="lazy">
+            <span class="past-event-zoom" aria-hidden="true"><i class="fa-solid fa-images"></i></span>
+          </figure>
+          <div class="past-event-info">
+            <p class="past-event-date"><i class="fa-regular fa-calendar"></i>Date TBC</p>
+            <h3>Event title to be confirmed</h3>
+            <p class="past-event-place"><i class="fa-solid fa-location-dot"></i>Location TBC</p>
+          </div>
+        </article>
+        <article class="past-event-card reveal">
+          <figure class="past-event-image">
+            <img src="https://images.pixieset.com/572383421/3d27984c022f6cab48267cf886b74706-xlarge.JPG" alt="Youth choir singing" loading="lazy">
+            <span class="past-event-zoom" aria-hidden="true"><i class="fa-solid fa-images"></i></span>
+          </figure>
+          <div class="past-event-info">
+            <p class="past-event-date"><i class="fa-regular fa-calendar"></i>Date TBC</p>
+            <h3>Event title to be confirmed</h3>
+            <p class="past-event-place"><i class="fa-solid fa-location-dot"></i>Location TBC</p>
+          </div>
+        </article>
+      </div>
+      <p class="past-events-note"><a href="{{BACK_URL}}"><i class="fa-solid fa-arrow-left"></i> {{BACK_TEXT}}</a> · Have photos or details from an event in {{TITLE}}? <a href="contact.html">Send them to us</a>.</p>
+    </div>
+  </section>
+
+  <!-- Event calendar -->
+  <section class="event-calendar bg-section" id="event-calendar">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="section-title">
+            <span class="section-sub-title">Calendar</span>
+            <h2>Event Calendar</h2>
+            <p>Sabbath Worship Service is held every Saturday from 9:00 AM to 2:00 PM in all branches. Weekly Fasting and Prayer usually runs from 9:00 AM to 2:30 PM — the day varies by location.</p>
+          </div>
+          <ul class="calendar-legend">
+            <li><span class="dot sabbath"></span>Sabbath Worship Service</li>
+            <li><span class="dot today"></span>Today</li>
+          </ul>
+        </div>
+        <div class="col-lg-7">
+          <div class="calendar-box reveal" data-calendar>
+            <div class="calendar-head">
+              <button type="button" class="calendar-nav" data-cal-prev aria-label="Previous month"><i class="fa-solid fa-chevron-left"></i></button>
+              <h3 data-cal-title aria-live="polite">Month</h3>
+              <button type="button" class="calendar-nav" data-cal-next aria-label="Next month"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+            <div class="calendar-grid" data-cal-grid role="grid"></div>
+            <p class="calendar-detail" data-cal-detail>Select a Saturday to see the service time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
