@@ -1988,3 +1988,59 @@ header.main-header .header-sticky.active:not(.hide) { transform: translateY(0); 
   .belief-item { padding: 35px 25px; }
   .impact-item h2 { font-size: 32px; }
 }
+
+/* ==========================================================
+   PHONE POLISH (small screens)
+   ========================================================== */
+/* A photo that fails to load shows the frame's dark-red background, not a broken icon */
+img.img-failed { visibility: hidden; }
+
+@media (max-width: 991px) {
+  /* Apostles: a tidy grid (founder first) instead of a side-scrolling row,
+     so no card is cut off and the spacing is even */
+  .ap-curve {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    overflow: visible;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 10px 0 20px;
+  }
+  .ap-card { order: var(--a); width: 100%; }
+  .ap-label { font-size: 13px; padding: 30px 10px 12px; }
+}
+@media (max-width: 575px) {
+  /* Two cards per row on phones; the odd last card sits centred */
+  .ap-curve { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 400px; }
+  .ap-card:last-child { grid-column: 1 / -1; justify-self: center; width: calc(50% - 8px); }
+  .ap-photo b { font-size: 40px; }
+}
+
+@media (max-width: 575px) {
+  /* Less empty space between sections on phones */
+  .about-us, .our-service, .our-mission, .our-sermons, .our-ministries, .our-events, .cta-box,
+  .our-testimonials, .donate-now, .our-faqs, .our-blog, .page-content, .our-apostles,
+  .what-we-do, .our-pastor, .our-impact, .past-events, .event-calendar, .giving-page, .contact-us { padding-top: 60px; padding-bottom: 60px; }
+  .google-map { padding-bottom: 60px; }
+  .section-row { margin-bottom: 30px; }
+  .section-title { margin-bottom: 30px; }
+  .section-title h2 { font-size: 28px; }
+
+  /* Ministry cards: shorter, still room for the text */
+  .ministry-item { aspect-ratio: 4 / 3.4; padding: 24px; }
+  .ministry-item .icon-box { width: 48px; height: 48px; font-size: 19px; }
+
+  /* Values section: breathing room between the call-us row and the photo */
+  .mission-images { margin-top: 36px; }
+  .mission-images .img-frame { aspect-ratio: 4 / 3.6; }
+  .mission-badge { left: 14px; bottom: 14px; padding: 18px 20px; max-width: 200px; }
+  .mission-badge h3 { font-size: 32px; }
+
+  /* Sermon / news photos a little shorter */
+  .sermon-item .img-frame { aspect-ratio: 16 / 10; }
+  .post-item .img-frame { aspect-ratio: 16 / 10; margin-bottom: 18px; }
+}
+@media (min-width: 576px) and (max-width: 1200px) {
+  .ministry-item { aspect-ratio: 4 / 3.6; }
+}

@@ -223,6 +223,19 @@
     });
   }
 
+  /* ---------- Photos: retry once if one fails (e.g. weak mobile data), then hide it cleanly ---------- */
+  var fixImage = function (img) {
+    if (img.dataset.retried) { img.classList.add('img-failed'); return; }
+    img.dataset.retried = '1';
+    var src = img.currentSrc || img.src;
+    setTimeout(function () { img.src = src + (src.indexOf('?') < 0 ? '?' : '&') + 'retry=1'; }, 1500);
+  };
+  document.querySelectorAll('img').forEach(function (img) {
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) fixImage(img);
+    img.addEventListener('error', function () { fixImage(img); });
+    img.addEventListener('load', function () { img.classList.remove('img-failed'); });
+  });
+
   /* ---------- Hero video: skip the black intro and loop from there ---------- */
   var heroVideo = document.querySelector('.hero-video');
   if (heroVideo) {
