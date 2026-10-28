@@ -8,3 +8,19 @@
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Private settings and local tooling (never commit secrets)
+.env
+.env.*
+!.env.example
+node_modules/
+supabase/.temp/
+supabase/.branches/
+
+# Django backend: local-only files (never commit secrets or uploads)
+backend/.venv/
+backend/.env
+backend/media/
+backend/staticfiles/
+__pycache__/
+*.pyc
