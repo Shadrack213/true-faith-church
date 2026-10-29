@@ -74,12 +74,13 @@ class EventQuerySet(models.QuerySet):
 class Event(TimeStamped):
     class Category(models.TextChoices):
         NATIONAL = "national", "National"
+        HEADQUARTERS = "headquarters", "Headquarters"
         REGIONAL = "regional", "Regional"
         DISTRICT = "district", "District"
 
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    category = models.CharField(max_length=10, choices=Category.choices)
+    category = models.CharField(max_length=12, choices=Category.choices)
     starts_at = models.DateTimeField()
     ends_at = models.DateTimeField(null=True, blank=True)
     time_zone = models.CharField(max_length=50, default="Africa/Accra", help_text="Used to show the local date and time.")
@@ -111,11 +112,11 @@ class Event(TimeStamped):
             models.CheckConstraint(
                 name="event_category_target",
                 condition=(
-                    Q(category="national", region__isnull=True, district__isnull=True)
+                    Q(category__in=["national", "headquarters"], region__isnull=True, district__isnull=True)
                     | Q(category="regional", region__isnull=False, district__isnull=True)
                     | Q(category="district", district__isnull=False)
                 ),
-                violation_error_message="National events have no region or district; regional events need a "
+                violation_error_message="National and Headquarters events have no region or district; regional events need a "
                                         "region; district events need a district.",
             ),
             models.CheckConstraint(
@@ -163,6 +164,9 @@ class ChurchLocation(TimeStamped):
     postal_address = models.CharField(max_length=200, blank=True)
     phone = models.CharField(max_length=40, blank=True)
     email = models.EmailField(blank=True)
+    map_url = models.URLField("map link", max_length=500, blank=True,
+                              validators=[RegexValidator(r"^https://", "Use an https:// link.")],
+                              help_text="Optional Google Maps link to the branch.")
     is_verified = models.BooleanField(default=False, help_text="Confirmed by the church as a real branch.")
     is_active = models.BooleanField(default=True, help_text="The branch is currently operating.")
     is_public = models.BooleanField(default=False, help_text="Approved to show on the website.")

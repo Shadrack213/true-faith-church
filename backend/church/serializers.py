@@ -82,7 +82,7 @@ class ChurchLocationSerializer(ConstraintValidationMixin, serializers.ModelSeria
         fields = [
             "id", "name", "kind", "country_code", "country_name", "region", "region_slug", "region_name",
             "district", "district_slug", "district_name", "locality", "address", "postal_address",
-            "phone", "email", "is_verified", "is_active", "is_public", "sort_order",
+            "phone", "email", "map_url", "is_verified", "is_active", "is_public", "sort_order",
         ]
 
 

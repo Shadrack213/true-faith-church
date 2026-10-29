@@ -5,6 +5,7 @@ API routes (all under /api/):
   GET /api/health/                  API + database check
   GET /api/events/                  ?category= ?region= ?district= ?when=upcoming|past
   GET /api/events/national/         national events
+  GET /api/events/headquarters/     headquarters events
   GET /api/events/regional/         ?region=<slug>
   GET /api/events/district/         ?district=<slug>
   GET /api/events/<id>/

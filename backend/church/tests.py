@@ -8,6 +8,7 @@ import tempfile
 from datetime import timedelta
 
 from django.contrib.auth.models import Permission, User
+from django.core.exceptions import ValidationError
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase, override_settings
 from django.test.client import BOUNDARY, MULTIPART_CONTENT, encode_multipart
@@ -72,7 +73,10 @@ class ApiTests(TestCase):
     # ---- seed data and basics ------------------------------------------
     def test_seed_data(self):
         self.assertEqual(Region.objects.count(), 20)
-        self.assertEqual(District.objects.count(), 3)
+        # Kumasi, Accra and Asawinso plus the website's placeholders District 4 to District 25
+        self.assertEqual(District.objects.count(), 25)
+        self.assertEqual(sorted(District.objects.values_list("slug", flat=True))[:3], ["accra-district", "asawinso-district", "district-10"])
+        self.assertTrue(District.objects.filter(slug="district-25", name="District 25", is_active=True).exists())
         self.assertFalse(District.objects.filter(region__isnull=False).exists(), "no unverified district-region links")
         self.assertEqual(Ministry.objects.filter(status="published").count(), 7)
         self.assertTrue(Event.objects.filter(title="Youth Impact Night", status="published").exists())
@@ -127,6 +131,14 @@ class ApiTests(TestCase):
         self.assertEqual(sorted(self.titles("/api/events/regional/")), ["Ashanti East Revival", "Central Convention"])
         self.assertEqual(self.titles("/api/events/district/"), ["Kumasi District Rally"])
 
+    def test_headquarters_events(self):
+        hq = Event.objects.create(title="Headquarters Prayer Day", category="headquarters", status="published",
+                                  starts_at=timezone.now() + timedelta(days=4))
+        self.assertEqual(self.titles("/api/events/headquarters/"), ["Headquarters Prayer Day"])
+        self.assertEqual(self.titles("/api/events/?category=headquarters"), ["Headquarters Prayer Day"])
+        self.assertNotIn("Headquarters Prayer Day", self.titles("/api/events/national/"))
+        self.assertEqual(self.client.get(f"/api/events/{hq.id}/").json()["category"], "headquarters")
+
     def test_region_and_district_filters(self):
         self.assertEqual(self.titles("/api/events/?category=regional&region=ashanti-east"), ["Ashanti East Revival"])
         self.assertEqual(self.titles("/api/events/regional/?region=central-region"), ["Central Convention"])
@@ -159,7 +171,7 @@ class ApiTests(TestCase):
     def test_regions_and_districts(self):
         self.assertEqual(self.client.get("/api/regions/?page_size=200").json()["count"], 20)
         self.assertEqual(self.client.get("/api/regions/ashanti-east/").json()["name"], "Ashanti East")
-        self.assertEqual(self.client.get("/api/districts/").json()["count"], 3)
+        self.assertEqual(self.client.get("/api/districts/").json()["count"], 25)
         District.objects.filter(slug="kumasi-district").update(region=self.ae)
         self.assertEqual([d["slug"] for d in self.client.get("/api/districts/?region=ashanti-east").json()["results"]],
                          ["kumasi-district"])
@@ -171,6 +183,18 @@ class ApiTests(TestCase):
         self.assertEqual([l["name"] for l in de], ["Berlin Branch"])
         gh = self.client.get("/api/church-locations/?country=GH&exclude_kind=headquarters").json()["results"]
         self.assertEqual(gh, [])
+
+    def test_church_location_map_link(self):
+        berlin = ChurchLocation.objects.get(name="Berlin Branch")
+        berlin.map_url = "https://maps.google.com/?q=Berlin"
+        berlin.full_clean()
+        berlin.save()
+        de = self.client.get("/api/church-locations/?country=DE").json()["results"]
+        self.assertEqual(de[0]["map_url"], "https://maps.google.com/?q=Berlin")
+        for bad in ("http://maps.google.com/?q=Berlin", "javascript:alert(1)"):
+            berlin.map_url = bad
+            with self.assertRaises(ValidationError):
+                berlin.full_clean()
 
     def test_ministries_and_leadership_hide_drafts(self):
         self.assertEqual(self.client.get("/api/ministries/").json()["count"], 7)
@@ -221,6 +245,7 @@ class ApiTests(TestCase):
             {"title": "Bad dates", "category": "national", "starts_at": now.isoformat(), "ends_at": (now - timedelta(days=1)).isoformat()},
             {"title": "Bad link", "category": "national", "starts_at": now.isoformat(), "link_url": "javascript:alert(1)"},
             {"title": "Unknown region", "category": "regional", "region": "nowhere", "starts_at": now.isoformat()},
+            {"title": "HQ with region", "category": "headquarters", "region": "ashanti-east", "starts_at": now.isoformat()},
         ]
         for body in bad:
             r = self.client.post("/api/events/", body, content_type="application/json")

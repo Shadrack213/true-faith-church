@@ -34,9 +34,9 @@ class EventViewSet(viewsets.ModelViewSet):
     """
     Events. Visitors only ever see published events.
 
-    Filters: ?category=national|regional|district  ?region=<slug>  ?district=<slug>
+    Filters: ?category=national|headquarters|regional|district  ?region=<slug>  ?district=<slug>
              ?when=upcoming|past  ?page=  ?page_size= (max 200)
-    Shortcuts: /api/events/national/  /api/events/regional/  /api/events/district/
+    Shortcuts: /api/events/national/  /api/events/headquarters/  /api/events/regional/  /api/events/district/
     """
 
     serializer_class = EventSerializer
@@ -47,7 +47,7 @@ class EventViewSet(viewsets.ModelViewSet):
         qs = Event.objects.select_related("region", "district")
         if not is_staff(self.request):
             qs = qs.published()
-        if self.action in ("list", "national", "regional", "district"):
+        if self.action in ("list", "national", "headquarters", "regional", "district"):
             params = self.request.query_params
             category = self.forced_category or choice_param(self.request, "category", set(Event.Category.values))
             if category:
@@ -74,6 +74,10 @@ class EventViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=["get"])
     def national(self, request):
         return self._category_list(request, Event.Category.NATIONAL)
+
+    @action(detail=False, methods=["get"])
+    def headquarters(self, request):
+        return self._category_list(request, Event.Category.HEADQUARTERS)
 
     @action(detail=False, methods=["get"])
     def regional(self, request):
